@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khóa Học Lập Trình Cấp Tốc</title>
+    <!-- Thư viện Font Awesome cho logo Python và Java -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* --- Cài đặt chung & Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&display=swap' );
+
+        :root {
+            --dark-blue: #0a192f;
+            --light-blue: #112240;
+            --slate: #a8b2d1;
+            --light-slate: #ccd6f6;
+            --gold: #ffca28;
+            --white: #e6f1ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: var(--dark-blue);
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: var(--light-slate);
+            font-weight: 700;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--light-blue);
+        }
+
+        /* --- Header --- */
+        .header {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .header .sap-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--slate);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .header .sap-logo span {
+            color: var(--gold);
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .header .slogan {
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .languages {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .languages .lang-card {
+            background-color: var(--light-blue);
+            padding: 20px;
+            border-radius: 8px;
+            width: 120px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .languages .lang-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* CSS cho logo Font Awesome (Python, Java) */
+        .languages .lang-card i {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 10px;
+            height: 48px; /* Đồng bộ chiều cao */
+            line-height: 48px;
+        }
+        
+        /* CSS cho logo C++ (SVG) */
+        .languages .lang-card svg {
+            width: 48px; /* Kích thước tương đương */
+            height: 48px;
+            margin-bottom: 10px;
+            fill: var(--white); /* Màu sắc logo */
+        }
+        
+        .languages .lang-card span {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--slate);
+        }
+        
+        /* --- Giảng viên --- */
+        .instructor {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .instructor-info {
+            flex: 1;
+        }
+
+        .instructor-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .instructor-info .experience {
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .achievements {
+            list-style: none;
+        }
+
+        .achievements li {
+            background-color: var(--light-blue);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid var(--gold);
+            transition: background-color 0.3s;
+        }
+        
+        .achievements li:hover {
+            background-color: #1a2c4e;
+        }
+
+        .achievements li::before {
+            content: '🏆';
+            margin-right: 10px;
+        }
+
+        /* --- Chi tiết khóa học --- */
+        .course-details h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            background-color: var(--light-blue);
+            border-radius: 8px;
+            padding: 5px;
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: transparent;
+            color: var(--slate);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .tab-button.active {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--light-blue);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--dark-blue);
+        }
+
+        th {
+            background-color: #1a2c4e;
+            color: var(--light-slate);
+        }
+        
+        td:first-child {
+            font-weight: 700;
+            color: var(--gold);
+            width: 80px;
+        }
+
+        /* --- Call to Action & Footer --- */
+        .cta {
+            text-align: center;
+            background-color: var(--light-blue);
+            padding: 50px 20px;
+            border-radius: 8px;
+            margin-top: 60px;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .price span {
+            font-size: 1.2rem;
+            color: var(--slate);
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #ffde7a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            .instructor {
+                flex-direction: column;
+            }
+            .tabs {
+                flex-direction: column;
+            }
+            .tab-button {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="sap-logo">S<span>A</span>P</div>
+            <h1>KHÓA HỌC LẬP TRÌNH CẤP TỐC</h1>
+            <p class="slogan">Chỉ 2 tháng để nắm vững kiến thức nền tảng, tự tin chinh phục các kỳ thi lập trình đầu tiên!</p>
+            <div class="languages">
+                  <div class="lang-card">
+                    <i class="fa-brands fa-c"></i>
+                    <span>C++</span>
+                </div>
+                <div class="lang-card">
+                    <i class="fa-brands fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="lang-card">
+                    <i class="fa-brands fa-java"></i>
+                    <span>Java</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="instructor" class="instructor">
+            <div class="instructor-info">
+                <h2>Gặp gỡ Giảng viên</h2>
+                <p class="experience">6 năm kinh nghiệm lập trình thi đấu & 3 năm giảng dạy</p>
+                <ul class="achievements">
+                    <li><strong>Top 21 Thế Giới</strong> tại cuộc thi lập trình IEEEXtreme 17.0</li>
+                    <li><strong>Giải Ba</strong> Học sinh giỏi Quốc gia môn Tin học 2022 - 2023</li>
+                    <li><strong>Huy chương Vàng</strong> Olympic Tin học Miền Trung - Tây Nguyên 2021 - 2022</li>
+                    <li><strong>2 lần Giải Nhất</strong> Olympic Tin học Chuyên Khoa Học Tự Nhiên</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="curriculum" class="course-details">
+            <h2>Lộ trình học chuyên sâu (20 Buổi )</h2>
+            <div class="tabs">
+                <button class="tab-button active" onclick="openTab(event, 'cpp')">C++</button>
+                <button class="tab-button" onclick="openTab(event, 'python')">Python</button>
+                <button class="tab-button" onclick="openTab(event, 'java')">Java</button>
+            </div>
+
+            <!-- C++ Tab -->
+            <div id="cpp" class="tab-content active">
+                <table>
+                    <tr><th colspan="2">Tháng 1: Nền tảng C++ và Tư duy Lập trình (10 Buổi)</th></tr>
+                    <tr><td>1</td><td>Tổng quan và Môi trường: Compiler, IDE, iostream.</td></tr>
+                    <tr><td>2</td><td>Biến, Kiểu dữ liệu & Toán tử: int, long long, double, char.</td></tr>
+                    <tr><td>3</td><td>Logic và Cấu trúc rẽ nhánh: if-else, if-else if.</td></tr>
+                    <tr><td>4</td><td>Cấu trúc rẽ nhánh nâng cao & Vòng lặp: switch-case, for, while.</td></tr>
+                    <tr><td>5</td><td>Vòng lặp nâng cao: do-while, break, continue, vòng lặp lồng nhau.</td></tr>
+                    <tr><td>6</td><td>Mảng một chiều (Array): Khai báo, duyệt mảng, thuật toán cơ bản.</td></tr>
+                    <tr><td>7</td><td>Hàm (Function): Tham trị, tham chiếu, biến cục bộ, toàn cục.</td></tr>
+                    <tr><td>8</td><td>Lý thuyết số - Phần 1: Số nguyên tố, sàng Eratosthenes.</td></tr>
+                    <tr><td>9</td><td>Lý thuyết số - Phần 2: Ước chung lớn nhất (Euclid), Bội chung nhỏ nhất.</td></tr>
+                    <tr><td>10</td><td>Đệ quy (Recursion): Khái niệm, bài toán kinh điển (Giai thừa, Fibonacci).</td></tr>
+                    <tr><th colspan="2">Tháng 2: Cấu trúc dữ liệu và Kỹ thuật Nâng cao (10 Buổi)</th></tr>
+                    <tr><td>11</td><td>Mảng hai chiều (2D Array): Xử lý ma trận, kỹ thuật duyệt.</td></tr>
+                    <tr><td>12</td><td>Chuỗi ký tự (String): std::string, mảng char.</td></tr>
+                    <tr><td>13</td><td>Con trỏ (Pointer) - Phần 1: Khái niệm, địa chỉ, toán tử * và &.</td></tr>
+                    <tr><td>14</td><td>Con trỏ (Pointer) - Phần 2: Con trỏ và mảng, cấp phát động.</td></tr>
+                    <tr><td>15</td><td>Thuật toán tìm kiếm: Tuyến tính, Nhị phân.</td></tr>
+                    <tr><td>16</td><td>Thuật toán sắp xếp - Phần 1: Bubble Sort, Selection Sort.</td></tr>
+                    <tr><td>17</td><td>Thuật toán sắp xếp - Phần 2: Insertion Sort, std::sort.</td></tr>
+                    <tr><td>18</td><td>Cấu trúc (Struct): Tự định nghĩa kiểu dữ liệu, sắp xếp struct.</td></tr>
+                    <tr><td>19</td><td>Giới thiệu Lập trình Hướng đối tượng (OOP): Class, Object, Đóng gói.</td></tr>
+                    <tr><td>20</td><td>Tổng kết và Định hướng: Chiến lược contest, debug, tài liệu nâng cao.</td></tr>
+                </table>
+            </div>
+
+            <!-- Python Tab -->
+            <div id="python" class="tab-content">
+                 <table>
+                    <tr><th colspan="2">Tháng 1: Python Core và các Cấu trúc dữ liệu (10 Buổi)</th></tr>
+                    <tr><td>1</td><td>Giới thiệu Python: Cài đặt, PIP, IDE, biến, kiểu dữ liệu động.</td></tr>
+                    <tr><td>2</td><td>Toán tử và Chuỗi: f-string, slicing, các phương thức chuỗi.</td></tr>
+                    <tr><td>3</td><td>Cấu trúc điều khiển: if-elif-else, vòng lặp for, enumerate.</td></tr>
+                    <tr><td>4</td><td>Vòng lặp nâng cao và List: while, break, continue, giới thiệu List.</td></tr>
+                    <tr><td>5</td><td>List - Phần 1: Indexing, slicing, các phương thức (append, pop).</td></tr>
+                    <tr><td>6</td><td>List - Phần 2: List lồng nhau, List Comprehension.</td></tr>
+                    <tr><td>7</td><td>Tuple và Set: Dữ liệu bất biến, các phép toán trên tập hợp.</td></tr>
+                    <tr><td>8</td><td>Dictionary - Phần 1: Cặp key-value, khởi tạo, truy xuất.</td></tr>
+                    <tr><td>9</td><td>Dictionary - Phần 2: Các phương thức, duyệt Dictionary.</td></tr>
+                    <tr><td>10</td><td>Hàm (Function): def, tham số, giá trị trả về, default arguments.</td></tr>
+                    <tr><th colspan="2">Tháng 2: Kỹ thuật Nâng cao và Lập trình Hướng đối tượng (10 Buổi)</th></tr>
+                    <tr><td>11</td><td>Hàm nâng cao: *args, **kwargs, phạm vi biến (Scope).</td></tr>
+                    <tr><td>12</td><td>Hàm Lambda và các hàm bậc cao: lambda, map(), filter().</td></tr>
+                    <tr><td>13</td><td>Module và Package: import, tạo module riêng.</td></tr>
+                    <tr><td>14</td><td>Xử lý File I/O - Phần 1: Đọc file với open(), with.</td></tr>
+                    <tr><td>15</td><td>Xử lý File I/O - Phần 2: Ghi file (chế độ w, a), xử lý txt, csv.</td></tr>
+                    <tr><td>16</td><td>Xử lý ngoại lệ (Exception Handling): try...except...finally.</td></tr>
+                    <tr><td>17</td><td>OOP - Phần 1 (Cơ bản): Class, Object, __init__, self.</td></tr>
+                    <tr><td>18</td><td>OOP - Phần 2 (Kế thừa): Inheritance, Method Overriding, super().</td></tr>
+                    <tr><td>19</td><td>OOP - Phần 3 (Nâng cao): Đa hình, các phương thức đặc biệt.</td></tr>
+                    <tr><td>20</td><td>Tổng kết và Giới thiệu Thư viện: NumPy, Pandas, Matplotlib.</td></tr>
+                </table>
+            </div>
+
+            <!-- Java Tab -->
+            <div id="java" class="tab-content">
+                <table>
+                    <tr><th colspan="2">Tháng 1: Java Core và Cú pháp Nền tảng (10 Buổi)</th></tr>
+                    <tr><td>1</td><td>Giới thiệu Java Platform: JDK, JRE, JVM, IDE.</td></tr>
+                    <tr><td>2</td><td>Biến, Kiểu dữ liệu & Ép kiểu: 8 kiểu nguyên thủy, Scanner.</td></tr>
+                    <tr><td>3</td><td>Toán tử và Lớp Math: Các toán tử, các hàm toán học.</td></tr>
+                    <tr><td>4</td><td>Cấu trúc điều khiển: if-else, switch-case.</td></tr>
+                    <tr><td>5</td><td>Vòng lặp: for, while, do-while, for-each.</td></tr>
+                    <tr><td>6</td><td>Mảng một chiều (Array): Khai báo, khởi tạo, duyệt mảng.</td></tr>
+                    <tr><td>7</td><td>Lớp String: Bất biến, các phương thức quan trọng.</td></tr>
+                    <tr><td>8</td><td>Mảng hai chiều: Khai báo và xử lý ma trận.</td></tr>
+                    <tr><td>9</td><td>Phương thức (Methods): Định nghĩa, tham số, giá trị trả về.</td></tr>
+                    <tr><td>10</td><td>Nạp chồng phương thức (Overloading) và Đệ quy.</td></tr>
+                    <tr><th colspan="2">Tháng 2: Lập trình Hướng đối tượng Chuyên sâu (10 Buổi)</th></tr>
+                    <tr><td>11</td><td>OOP - Phần 1 (Khởi tạo): Class, Object, Constructor, this.</td></tr>
+                    <tr><td>12</td><td>OOP - Phần 2 (Static & Final): Biến và phương thức static, hằng số final.</td></tr>
+                    <tr><td>13</td><td>OOP - Phần 3 (Đóng gói): Access Modifiers, Encapsulation, Getter/Setter.</td></tr>
+                    <tr><td>14</td><td>OOP - Phần 4 (Kế thừa): extends, @Override, super.</td></tr>
+                    <tr><td>15</td><td>OOP - Phần 5 (Đa hình): Polymorphism, instanceof.</td></tr>
+                    <tr><td>16</td><td>OOP - Phần 6 (Lớp trừu tượng): Abstract Class và phương thức.</td></tr>
+                    <tr><td>17</td><td>OOP - Phần 7 (Interface): Khái niệm, implements.</td></tr>
+                    <tr><td>18</td><td>Xử lý ngoại lệ (Exception Handling): try-catch-finally, throw, throws.</td></tr>
+                    <tr><td>19</td><td>Collections Framework - Phần 1: Giới thiệu, ArrayList.</td></tr>
+                    <tr><td>20</td><td>Collections Framework - Phần 2 & Tổng kết: HashMap, tổng kết OOP.</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Đầu tư cho tương lai ngay hôm nay!</h2>
+            <div class="price">900.000 <span>VNĐ/Tháng</span></div>
+            <a href="https://zalo.me/0945438456?message=Ch%C3%A0o%20b%E1%BA%A1n%2C%20t%C3%B4i%20mu%E1%BB%91n%20t%C6%B0%20v%E1%BA%A5n" class="cta-button">ĐĂNG KÝ NGAY</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SAP. All Rights Reserved.</p>
+            <p>Hotline: 0945438456 | Email: phungminhphan90@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+</body>
+</html>
