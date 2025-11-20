@@ -131,13 +131,26 @@
         
         /* --- Giảng viên --- */
         .instructor {
-            display: flex;
+            /* Loại bỏ flex để hình ảnh có thể chiếm toàn bộ chiều rộng */
+            text-align: center; /* Căn giữa nội dung */
             gap: 40px;
-            align-items: center;
+            padding-bottom: 40px; /* Thêm khoảng cách dưới ảnh */
         }
 
         .instructor-info {
             flex: 1;
+            text-align: left; /* Đảm bảo text vẫn căn trái */
+        }
+        
+        .instructor-image {
+            display: block;
+            width: 100%; /* Chiếm toàn bộ chiều rộng của container */
+            max-width: 900px; /* Giới hạn kích thước tối đa */
+            height: auto;
+            margin: 0 auto 40px auto; /* Căn giữa và thêm khoảng cách dưới */
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            object-fit: cover;
         }
 
         .instructor-info h2 {
@@ -294,7 +307,10 @@
                 font-size: 2.5rem;
             }
             .instructor {
-                flex-direction: column;
+            }
+            .instructor-image {
+                width: 120%;
+                margin-bottom: 20px;
             }
             .tabs {
                 flex-direction: column;
@@ -336,7 +352,8 @@
 
     <main class="container">
         <section id="instructor" class="instructor">
-            <div class="instructor-info">
+            <img src="instructor_image.png" alt="Giảng viên là những cá nhân có kinh nghiệm và giàu thành tích tại kì thi ICPC" class="instructor-image">
+                <div class="instructor-info">
                 <h2>Gặp gỡ Giảng viên</h2>
                 <p class="experience">6 năm kinh nghiệm lập trình thi đấu & 3 năm giảng dạy</p>
                 <ul class="achievements">
