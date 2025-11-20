@@ -316,6 +316,10 @@
             <div class="languages">
                   <div class="lang-card">
                     <i class="fa-brands fa-c"></i>
+                    <span>C</span>
+                </div>
+                <div class="lang-card">
+                    <i class="fa-brands fa-c"></i>
                     <span>C++</span>
                 </div>
                 <div class="lang-card">
@@ -347,14 +351,70 @@
         <section id="curriculum" class="course-details">
             <h2>Lộ trình học chuyên sâu (20 Buổi )</h2>
             <div class="tabs">
-                <button class="tab-button active" onclick="openTab(event, 'cpp')">C++</button>
+                <button class="tab-button active" onclick="openTab(event, 'c')">C</button>
+                <button class="tab-button" onclick="openTab(event, 'cpp')">C++</button>
                 <button class="tab-button" onclick="openTab(event, 'python')">Python</button>
                 <button class="tab-button" onclick="openTab(event, 'java')">Java</button>
             </div>
 
-            <!-- C++ Tab -->
-            <div id="cpp" class="tab-content active">
+            <!-- C Tab -->
+            <div id="c" class="tab-content active">
                 <table>
+                    <tr><th colspan="2">Tháng 1: Nền tảng C và Tư duy Lập trình (10 Buổi)</th></tr>
+                    <tr><td>1</td><td>Tổng quan và Môi trường: Compiler, IDE, stdio.h.</td></tr>
+                    <tr><td>2</td><td>Biến, Kiểu dữ liệu & Toán tử: int, long long, float, char.</td></tr>
+                    <tr><td>3</td><td>Logic và Cấu trúc rẽ nhánh: if-else, if-else if.</td></tr>
+                    <tr><td>4</td><td>Cấu trúc rẽ nhánh nâng cao & Vòng lặp: switch-case, for, while.</td></tr>
+                    <tr><td>5</td><td>Vòng lặp nâng cao: do-while, break, continue, vòng lặp lồng nhau.</td></tr>
+                    <tr><td>6</td><td>Mảng một chiều (Array): Khai báo, duyệt mảng, thuật toán cơ bản.</td></tr>
+                    <tr><td>7</td><td>Hàm (Function): Tham trị, tham chiếu (với con trỏ), biến cục bộ, toàn cục.</td></tr>
+                    <tr><td>8</td><td>Lý thuyết số - Phần 1: Số nguyên tố, sàng Eratosthenes.</td></tr>
+                    <tr><td>9</td><td>Lý thuyết số - Phần 2: Ước chung lớn nhất (Euclid), Bội chung nhỏ nhất.</td></tr>
+                    <tr><td>10</td><td>Đệ quy (Recursion): Khái niệm, bài toán kinh điển (Giai thừa, Fibonacci).</td></tr>
+                    <tr><th colspan="2">Tháng 2: Con trỏ, Cấu trúc và Kỹ thuật Nâng cao (10 Buổi)</th></tr>
+                    <tr><td>11</td><td>Mảng hai chiều (2D Array): Xử lý ma trận, kỹ thuật duyệt.</td></tr>
+                    <tr><td>12</td><td>Chuỗi ký tự (String): Mảng char, các hàm trong string.h.</td></tr>
+                    <tr><td>13</td><td>Con trỏ (Pointer) - Phần 1: Khái niệm, địa chỉ, toán tử * và &.</td></tr>
+                    <tr><td>14</td><td>Con trỏ (Pointer) - Phần 2: Con trỏ và mảng, cấp phát động (malloc, free).</td></tr>
+                    <tr><td>15</td><td>Thuật toán tìm kiếm: Tuyến tính, Nhị phân.</td></tr>
+                    <tr><td>16</td><td>Thuật toán sắp xếp - Phần 1: Bubble Sort, Selection Sort.</td></tr>
+                    <tr><td>17</td><td>Thuật toán sắp xếp - Phần 2: Insertion Sort, Quicksort/Mergesort cơ bản.</td></tr>
+                    <tr><td>18</td><td>Cấu trúc (Struct): Tự định nghĩa kiểu dữ liệu, mảng struct.</td></tr>
+                    <tr><td>19</td><td>Xử lý File I/O: fopen, fclose, fprintf, fscanf.</td></tr>
+                    <tr><td>20</td><td>Tổng kết và Định hướng: Chiến lược contest, debug, tài liệu nâng cao.</td></tr>
+                </table>
+            </div>
+
+            <!-- C++ Tab -->
+            <div id="cpp" class="tab-content">
+                <table>
+                    <tr><th colspan="2">Tháng 1: Nền tảng C++ và Tư duy Lập trình (10 Buổi)</th></tr>
+                    <tr><td>1</td><td>Tổng quan và Môi trường: Compiler, IDE, iostream.</td></tr>
+                    <tr><td>2</td><td>Biến, Kiểu dữ liệu & Toán tử: int, long long, double, char.</td></tr>
+                    <tr><td>3</td><td>Logic và Cấu trúc rẽ nhánh: if-else, if-else if.</td></tr>
+                    <tr><td>4</td><td>Cấu trúc rẽ nhánh nâng cao & Vòng lặp: switch-case, for, while.</td></tr>
+                    <tr><td>5</td><td>Vòng lặp nâng cao: do-while, break, continue, vòng lặp lồng nhau.</td></tr>
+                    <tr><td>6</td><td>Mảng một chiều (Array): Khai báo, duyệt mảng, thuật toán cơ bản.</td></tr>
+                    <tr><td>7</td><td>Hàm (Function): Tham trị, tham chiếu, biến cục bộ, toàn cục.</td></tr>
+                    <tr><td>8</td><td>Lý thuyết số - Phần 1: Số nguyên tố, sàng Eratosthenes.</td></tr>
+                    <tr><td>9</td><td>Lý thuyết số - Phần 2: Ước chung lớn nhất (Euclid), Bội chung nhỏ nhất.</td></tr>
+                    <tr><td>10</td><td>Đệ quy (Recursion): Khái niệm, bài toán kinh điển (Giai thừa, Fibonacci).</td></tr>
+                    <tr><th colspan="2">Tháng 2: Cấu trúc dữ liệu và Kỹ thuật Nâng cao (10 Buổi)</th></tr>
+                    <tr><td>11</td><td>Mảng hai chiều (2D Array): Xử lý ma trận, kỹ thuật duyệt.</td></tr>
+                    <tr><td>12</td><td>Chuỗi ký tự (String): std::string, mảng char.</td></tr>
+                    <tr><td>13</td><td>Con trỏ (Pointer) - Phần 1: Khái niệm, địa chỉ, toán tử * và &.</td></tr>
+                    <tr><td>14</td><td>Con trỏ (Pointer) - Phần 2: Con trỏ và mảng, cấp phát động.</td></tr>
+                    <tr><td>15</td><td>Thuật toán tìm kiếm: Tuyến tính, Nhị phân.</td></tr>
+                    <tr><td>16</td><td>Thuật toán sắp xếp - Phần 1: Bubble Sort, Selection Sort.</td></tr>
+                    <tr><td>17</td><td>Thuật toán sắp xếp - Phần 2: Insertion Sort, std::sort.</td></tr>
+                    <tr><td>18</td><td>Cấu trúc (Struct): Tự định nghĩa kiểu dữ liệu, sắp xếp struct.</td></tr>
+                    <tr><td>19</td><td>Giới thiệu Lập trình Hướng đối tượng (OOP): Class, Object, Đóng gói.</td></tr>
+                    <tr><td>20</td><td>Tổng kết và Định hướng: Chiến lược contest, debug, tài liệu nâng cao.</td></tr>
+                </table>
+            </div>
+
+          <!-- C Tab -->
+            <div id="cpp" class="tab-content">              <table>
                     <tr><th colspan="2">Tháng 1: Nền tảng C++ và Tư duy Lập trình (10 Buổi)</th></tr>
                     <tr><td>1</td><td>Tổng quan và Môi trường: Compiler, IDE, iostream.</td></tr>
                     <tr><td>2</td><td>Biến, Kiểu dữ liệu & Toán tử: int, long long, double, char.</td></tr>
